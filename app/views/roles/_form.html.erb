@@ -1,0 +1,42 @@
+<div class="form-con">
+  <div class="post">
+<%= form_for(@roles) do |f| %>
+  <% if @roles.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@roles.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @roles.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :create_droit, t("created") %><br>
+    <%= f.check_box :create_droit %>
+  </div>
+  <div class="field">
+    <%= f.label :update_droit, t("update") %><br>
+    <%= f.check_box :update_droit %>
+  </div>
+  <div class="field">
+    <%= f.label :delete_droit, t("deleted") %><br>
+    <%= f.check_box :delete_droit %>
+  </div>
+  <div class="field">
+    <%= f.label :superadmin %><br>
+    <%= f.check_box :superadmin %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit t("modirole") %>
+  </div>
+<% end %>
+
+</div></div>

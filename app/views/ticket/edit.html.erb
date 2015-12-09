@@ -1,0 +1,23 @@
+<div class="forn-con">
+  <div class="post">
+<%= form_for @ticket, :url => edit_ticket_path do |f| %>
+	<h2><%= t("editet") %></h2>
+  <div class="field">
+    <h3>Titre: </h3>
+    <%= @ticket.titre %>
+  </div>
+  <div class="field">
+    <h3>Message: </h3>
+    <%= @ticket.message %><br>
+  </div>
+  <%= f.label :admin %>
+ <%= f.select(:admin, @admin.map { |value| [ value.name, value.id ] }) %>
+  <br>
+  <%= f.label :etat %>
+ <%= f.select(:etat, options_for_select([["En cours", 0], ["Traite", 1]])) %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+</div>

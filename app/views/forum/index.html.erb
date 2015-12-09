@@ -1,0 +1,20 @@
+<div class="forum">
+	<% if session[:roles].present? && session[:roles]['id'] != 2 %>
+		<%= link_to t("addcate"), { controller: 'forum', action: 'new' }, { :class => 'btn btn-primary' } %>
+	<% end %>
+<% @category.each do |t| %>
+<div class="category post">
+	<h2>
+			<%= link_to t.title, controller: 'forum', action: 'subcategory', id: t.id %>
+	</h2>
+		<span class="desc-forum">
+			<%= t.desc %>
+		</span>
+		<% if session[:roles].present? && session[:roles]['id'] != 2 %>
+				<%= link_to t('edit'), id: t.id, controller: 'forum', action: 'edit' %>
+				<%= link_to t("destroy"), t, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+</div>
+<% end %>
+
+</div>

@@ -1,0 +1,16 @@
+<div class="forum">
+
+<h1><%= @subcat.title %></h1>
+<%= link_to t("back"), :back, { :class => 'btn btn-primary'} %>
+<% if session[:user_name].present? %>
+<%= link_to t("newtopic"), { controller: 'forum', action: 'newtopic', id: params[:id], id_sub: params[:id_sub]}, { :class => 'btn btn-primary'} %>
+<% end -%>
+<div class="topic-list">
+<% @topic.each do |t| %>
+<div class="topic-name">
+	<%= link_to t.title,  controller: 'topic', action: 'index', id: t.id %>
+	<span class="info-forum"><%= t("par") %> <span class="user"><%= t.user.name %></span> <%= t('le') %> <%= l t.created_at, :format => :sample %> </span>
+</div>
+<% end %>
+</div>
+</div>

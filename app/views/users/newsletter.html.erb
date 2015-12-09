@@ -1,0 +1,17 @@
+<div class="form-con">
+  <div class="post">
+<%= form_tag do %>
+ 
+  <div class="field">
+    <%= label_tag :object %><br />
+    <%= text_field_tag :object, params[:object] %>
+  </div>
+  <div class="field">
+    <%= label_tag :subject %><br />
+    <%= text_area_tag :subject %>
+  </div>
+  <div class="actions">
+    <%= submit_tag t("send") %>
+  </div>
+<% end %>
+</div></div>

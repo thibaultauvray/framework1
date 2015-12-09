@@ -1,0 +1,18 @@
+<h1><%= t("newtopic") %></h1>
+<div class="form-con">
+  <div class="post">
+<%= form_for @topic, :url => new_topic_path_path do |f| %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :texte %><br>
+    <%= f.text_field :texte %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+</div>

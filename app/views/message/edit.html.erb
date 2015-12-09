@@ -1,0 +1,12 @@
+<div class="form-con">
+	<div class="post">
+<%= form_for @reply do |f|%>
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_field :message %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div></div>

@@ -1,0 +1,14 @@
+<div class="form-con">
+	<div class="post">
+<%= form_for @reply do |f| %>
+<fieldset>
+	<legend>Repondre</legend>
+	<div class="field">
+    	<%= f.label :message_ticket %><br>
+    	<%= f.text_field :message_ticket %>
+  </div>
+</fieldset>
+  <%= f.submit %>
+<% end %>
+	</div>
+</div>

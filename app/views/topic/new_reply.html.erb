@@ -1,0 +1,14 @@
+<div class="form-con">
+	<div class="post">
+<%= form_for @reply, :url => new_reply_path_path do |f|%>
+  <div class="field">
+    <%= f.label :message_reply %><br>
+    <%= f.text_field :message_reply %>
+  </div>
+  <%= f.hidden_field :message_id, :value => params[:id_reply] %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+</div>

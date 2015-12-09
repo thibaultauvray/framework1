@@ -1,0 +1,13 @@
+<div class="form-con">
+	<div class="post">
+<%= form_for @message, :url => new_message_path do |f| %>
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_field :message %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+</div>

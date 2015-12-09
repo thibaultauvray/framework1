@@ -1,0 +1,28 @@
+<div class="ticket-show">
+<div class="post">
+<h2><%= @ticket.titre %></h2>
+<div class="etat">
+	<% if @ticket.etat == 0 %>
+		<span class="handling"><%= t("progress") %></span>
+	<% else %>
+		<span class="over"><%= t("done") %></span>
+		<% end %>
+</div>
+<p><%= @ticket.message %></p>
+</div>
+
+<% @ticket.MessageTicket.each do |t| %>
+<div class="message post">
+	<%= t.message_ticket %>
+	<span class="info-forum"><span class="user"><%= t.user.name %></span> <%= t("le") %> <%= l t.created_at, :format => :sample %></span>
+</div>
+<% end %>
+<% if @ticket.etat == 0 %>
+<%= link_to t("newmsg"), {id: params[:id], controller: 'ticket', action: 'reply'}, {:class => 'btn btn-primary'} %>
+<%= link_to t("close"), {id: params[:id], controller: 'ticket', action: 'close'}, {:class => 'btn btn-primary'} %>
+<% end %>
+
+<% if session[:user_id] == @ticket.user_id  && @ticket.etat != 0 %>
+	<%= link_to t("open"), { id: params[:id], controller: 'ticket', action: 'open', data: { confirm: "Are you sure?" } }, { :class => 'btn btn-primary'} %>
+<% end %>
+</div>

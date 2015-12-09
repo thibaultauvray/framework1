@@ -1,0 +1,88 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+  login: "Se connecter"
+  newus: "Creez un compte"
+  canlog: "Vous pouvez maintenant vous connecter"
+  mail: 'Mail envoyé'
+  rolecre: "Role créé avec succès"
+  roleup: "Role mis a jour"
+  msgsend: 'Message envoyé'
+  topicup: "Votre topic a bien été mis a jour"
+  topicse: 'Votre topic a bien ete envoyé'
+  topicde: 'Votre topic a bien ete supprimé'
+  editm: 'Message update'
+  postup: "Post mis a jour"
+  postde: "Post supprimé"
+  msgde: "Message supprimé"
+  rolede: "Role supprimé"
+  postcre: "Post créé avec succès"
+  ticketcrea: 'ticket created'
+  tickmod: 'Ticket modifié'
+  register: "S'enregistrer"
+  password: "Mot de passe"
+  connected: "Vous êtes bien connecté"
+  logout: "Se déconnecter"
+  disconnected: "Vous êtes bien déconnecté"
+  gestroles: "Gestion des roles"
+  gestusers: "Gestion des utilisateurs"
+  name: "Nom"
+  newtopic: "Nouveaux sujet"
+  edit: "Editer"
+  le: "le"
+  delete: "Supprimer"
+  destroy: "Supprimer"
+  newpost: "Nouveaux posts"
+  newuser: "Nouvel utilisateur"
+  newrole: "Nouveaux roles"
+  edituser: "Modifier l'utilisateur"
+  sure: "Êtes vous sur?"
+  back: "Retour"
+  created: "Creation"
+  update: "Mis a jour"
+  topic: 'Sujets'
+  par: 'Par'
+  rpndu: 'Répondu'
+  newtopic: 'Nouveaux sujet'
+  deleted: "Suppression"
+  modirole: "Modifier le role"
+  time:
+    formats:
+      sample: '%d/%m/%y'
+  editmsg: "Editer ce message"
+  addcate: 'Ajouter une categories'
+  editcate: "Editer categorie"
+  addsub: "Ajouter une sous-categorie"
+  subcat: "Sous-categorie"
+  newmsg: "Repondre"
+  gestick: 'Gestion Tickets'
+  noticket: "Pas de ticket"
+  ticketlist: 'Liste des tickets'
+  progress: "En cours de traitement"
+  done: 'Finis'
+  newticket: 'Nouveau ticket'
+  editet: 'Editer ce ticket'
+  close: 'Fermé'
+  open: 'Ouvrir'
+  titre: 'Titre'
+  send: 'Envoyer'
+  upticket: 'Editer / Attribution'

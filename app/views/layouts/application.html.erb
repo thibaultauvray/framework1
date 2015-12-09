@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Framework1</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+ 
+ 	<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+ 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+ 	<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> 
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+
+		<header>
+			</div>
+			<nav class ="menu">
+				<div class="container">
+				
+					<ul class="nav navbar-nav men">		
+						<li class="home">
+								<h1>
+									<%= link_to 'Framework1()', root_url %>
+								</h1>
+						</li>
+							<li class="top_li">
+								<nav class="ln">
+									<ul class="sel_ln">
+										<li>
+											<%= link_to 'fr', controller: 'users', action: 'set_fr' %> |
+										</li>
+										
+										<li>
+											<%= link_to 'en', controller: 'users', action: 'set_en' %>
+										</li>
+									</ul>
+									<ul class="sub_menu">
+										<li>
+											<%= link_to 'Forum', controller: 'forum', action: 'index' %>
+										</li>
+										<li>
+											<%= link_to 'Tickets', controller: 'ticket', action: 'index' %>
+										</li>
+										<li>
+											<% if session[:roles].present? && session[:roles]['id'] != 2 %>
+												<%= link_to t("gestick"), controller: 'ticket', action: 'spool' %>
+											<% end %>
+										</li>
+									</ul>
+								</nav>
+							</li>
+							
+					</ul>
+					<div class="register">
+							
+								<% if session[:roles].present? && session[:roles]['superadmin'] == 1%>
+									<%= link_to t('gestusers'), users_path %>
+									<%= link_to t('gestroles'), roles_path %>
+								<% end %>
+								<% if session[:user_name].nil? %>
+									<%= link_to t('register'), new_user_path, { :class => "btn btn-primary"} %>
+									<%= link_to t('login') , { controller: 'users', action: 'form_login'}, { :class => 'btn btn-primary' } %>
+								<% else %>
+									<%= link_to t('logout'), { controller: 'sessions', action: 'destroy' }, { :class => 'btn btn-primary'} %>
+								<% end %>
+							
+					</div>
+				</div>
+			</nav>
+<div class="container">
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+ <% end %>
+<%= yield %>
+</div>
+</body>
+</html>

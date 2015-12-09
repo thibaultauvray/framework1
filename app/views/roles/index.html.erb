@@ -1,0 +1,44 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th><%= t("name") %></th>
+      <th><%= t("created") %></th>
+      <th><%= t("update") %></th>
+      <th><%= t("deleted") %></th>
+      <th>Superadmin</th>
+      <td><%= t("edit") %></td>
+      <td><%= t("destroy") %></td>
+     </tr>
+  </thead>
+
+  <tbody>
+<% @roles.each do |role| %>
+<% if role.id != 2 %>
+<tr>
+	<td>
+		<%= role.name %>
+	</td>
+	<td>
+		<%= role.create_droit %>
+	</td>
+	<td>
+		<%= role.update_droit %>
+	</td>
+	<td>
+		<%= role.delete_droit %>
+	</td>
+	<td>
+		<%= role.superadmin %>
+	</td>
+	<td><%= link_to t("edit"), edit_role_path(role) %></td>
+	<td><%= link_to t("destroy"), role, method: :delete, data: { confirm: t("sure") } %></td>
+</tr>
+<% end %>
+<% end %>
+<tr>
+	<td>
+		<%= link_to t("newrole"), new_role_path %>
+	</td>
+</tr>
+	</tbody>
+	</table

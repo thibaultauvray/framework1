@@ -1,0 +1,19 @@
+<h1><%= t("ticketlist") %></h1>
+<% if @ticket == nil %>
+	<p><%= t("noticket") %></p>
+<% else %>
+	<% @ticket.each do |t| %>
+	<div class="post">
+		<h2>
+			<%= link_to t.titre, id: t.id, controller:'ticket', action: 'show' %>
+		</h2>
+	<% if t.etat == 0 %>
+		<span class="handling"><%= t("progress") %></span>
+	<% else %>
+		<span class="over"><%= t("done") %></span>
+		<% end %>
+		</div>
+	<% end %>
+<% end %>
+<br>
+<%= link_to t("newticket"), new_ticket_path, { :class => 'btn btn-primary'} %>

@@ -1,0 +1,29 @@
+<div class='post'>
+<%= notice %>
+
+<h2>
+  <% if cookies[:lang] == "en" %>
+   <%= @post.title_en %>
+	<% else %>
+  <%= @post.title %>
+  <% end %>
+</h2>
+<span class='auteur'>Proposé par 
+  <span class='user'> <%= @post.user.name %></span> 
+  le <%= l @post.created_at, :format => :sample %>
+</span>
+  <%= image_tag @post.photo.url(:small) %>
+
+<div class='info'>
+<span class='txte'>
+
+  <% if cookies[:lang] == "en" %>
+   <%= @post.texte_en %>
+	<% else %>
+  <%= @post.texte %>
+  <% end %>
+</p>
+</span>
+</div>
+
+</div>

@@ -1,0 +1,43 @@
+<div class="form-con">
+  <div class="post">
+<%= form_for(@users) do |f| %>
+  <% if @users.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@users.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @users.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name, t("name") %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, t("password") %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :newletter %><br>
+    <%= f.check_box :newletter %>
+  </div>
+  <div class="field">
+    <% if session[:roles].present? && session[:roles]['superadmin'] == 1 %>
+      <%= select("user", "role_id", Role.all.collect {|p| [ p.name, p.id ] })
+ %>
+    <% end %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+ </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="back">
+<%= link_to t('back'), :back, { :class => 'btn btn-primary'} %>
+</div>
+<div class="show-topic">
+<h1><%= @topic.title %></h1>
+<span class="auteur">
+		<span class="info-forum"><%= t("par") %> <span class="user"><%= @topic.user.name %></span> <%= t("le") %> <%= l @topic.created_at, :format => :sample %> </span>
+	</span>
+<div class="post forum-topic">
+<div class="message">
+	<p><%= @topic.texte %></p>
+	
+</div>
+</div>
+<div class="message">
+<% @message.each do |t| %>
+	<div class="message-in post">
+		<p class="msg"> <%= t.message %></p>
+		<div class="edit">
+		<% if session[:user_name].present? %>
+		<%= link_to t("newmsg"), controller: 'topic', action: 'new_reply', id_reply: t.id %>
+		<% end %>
+		<% if session[:user_id] == t.user_id %>
+			<%= link_to t("edit"), edit_message_path(t.id) %> 
+		<% end %>
+		<% if session[:user_id] == t.user_id || (session[:roles].present? && session[:roles]['delete_droit'] == 1)%>
+			<%= link_to t("destroy"), t, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+		</div>
+		<span class="info-forum"><span class="user"><%= t.user.name %></span> le <%= l t.created_at, :format => :sample %></span>
+	</div>
+	<% t.ReplyMessage.each do |f| %>
+	<div class="reply-msg post">
+		<p class="msg"><%= f.message_reply %></p>
+		<% if session[:user_id] == f.user_id %>
+			<%= link_to t("edit"), edit_reply_message_path(f.id), id_reply: f.id %> 
+		<% end %>
+
+		<% if session[:user_id] == f.user_id || (session[:roles].present? && session[:roles]['delete_droit'] == 1)%>
+		<%= link_to t("destroy"), f, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+		<span class="info-forum"><span class="user"><%= t.user.name %></span> <%= t("le") %> <%= l t.created_at, :format => :sample %></span>
+	</div>
+	<% end %>
+
+<% end %>
+</div>
+<div class="new">
+<% if session[:user_name].present? %>
+	<%= link_to t("newmsg"), { controller: 'topic', action: 'new', id: params[:id], id_reply: 0 }, { :class => 'btn btn-primary'} %>
+<% end %>
+</div>
+</div>

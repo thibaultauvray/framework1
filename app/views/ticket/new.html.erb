@@ -1,0 +1,18 @@
+<div class="form-con">
+  <div class="post">
+<%= form_for @ticket, :url => new_ticket_path do |f| %>
+	<div class="field">
+    <%= f.label :titre, t("titre") %><br>
+    <%= f.text_field :titre %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_field :message %>
+  </div>
+  <%= f.label :admin %>
+ <%= f.select(:admin, @admin.map { |value| [ value.name, value.id ] }) %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div></div>

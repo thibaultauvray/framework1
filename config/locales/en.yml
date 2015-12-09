@@ -1,0 +1,87 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  login: "Sign In"
+  newus: "Created a account"
+  canlog: 'You can loggued in now'
+  mail: 'Mail send'
+  topicup: 'Topic updated.'
+  topicse: 'Topic send'
+  topicde: 'Topic deleted'
+  postcre: 'Post was successfully created.'
+  postup: 'Post was successfully updated.'
+  postde: 'Post was successfully destroyed.' 
+  msgsend: 'Message send'
+  msgde: 'Message deleted'
+  editm: 'Message update'
+  ticketcrea: 'Ticket créé'
+  tickmod: 'Tickets updated'
+  register: "Register"
+  password: "Password"
+  connected: "Login Successful"
+  logout: "Logout"
+  disconnected: "Logout Succesful"
+  gestroles: "Role Management"
+  gestusers: "Users Management"
+  newtopic: "Add topic"
+  name: "Name"
+  edit: "Edit"
+  delete: "Delete"
+  destroy: "Delete"
+  newpost: "New posts"
+  newuser: "New User"
+  newrole: "New roles"
+  edituser: "Modify user"
+  rpndu: "Answered"
+  sure: "Are you sure? "
+  back: "Back"
+  le: "the"
+  rolecre: "Role was successfully created."
+  roleup: "Role was successfully updated."
+  rolede: "Role was successfully destroyed."
+  created: "Created"
+  update: "Updated"
+  topic: "Topics"
+  newtopic: 'New topic'
+  par: "By"
+  deleted: "Deleted"
+  modirole: "Modify role"
+  time:
+    formats:
+      sample: '%m/%d/%y'
+  editmsg: "Edit this message"
+  addcate: 'Add a category'
+  addsub: 'Add sub-category'
+  newmsg: 'Answer'
+  subcat: 'Sub-category'
+  gestick: 'Manage ticket'
+  noticket: "No ticket"
+  ticketlist: "Ticket list"
+  progress: 'In progress'
+  done: 'Closed'
+  newticket: 'New ticket'
+  editet: 'Edit this ticket'
+  close: 'Closed'
+  open: 'Open'
+  send: "Send"
+  titre: 'Title'
+  upticket: 'Edit / Attribution'

@@ -1,0 +1,20 @@
+<h1><%= t("newticket") %></h1>
+<% if @spool == nil %>
+	<p><%= t("noticket") %></p>
+<% else %>
+	<% @spool.each do |t| %>
+	<div class="post gestticket">
+		<h2><%= link_to t.titre, id: t.id, controller:'ticket', action: 'show' %> </h2>
+		<%= t.message %>
+		<span class="info-forum"><%= link_to t("upticket"), id: t.id, controller: 'ticket', action: 'edit' %> </span>
+	<div class="etat">
+	<% if t.etat == 0 %>
+		<span class="handling"><%= t("progress") %></span>
+	<% else %>
+		<span class="over"><%= t("done") %></span>
+		<% end %>
+		</div>
+	</div>
+	<% end %>
+<% end %>
+<br>
